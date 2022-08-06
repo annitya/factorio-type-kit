@@ -48,7 +48,7 @@ const printInner = (t: Type): string => {
       }
       return `${t.name}${t.isOptional ? "?" : ""}: ${print(t.type)}`;
     case "property":
-      return `${t.isReadonly ? "readonly " : ""}"${t.name}": ${print(t.type)}`;
+      return `${t.isReadonly ? "readonly " : ""}${t.name}: ${print(t.type)}`;
     case "interface":
       const inner = `{ ${Object.entries(t.membersByName)
         .map(([propName, prop]) => {
@@ -97,6 +97,6 @@ const printInner = (t: Type): string => {
 
 export const print = (t: Type): string => {
   if (t.jsDocDescription) return `\n${t.jsDocDescription}\n${printInner(t)}`;
-  if (t.description) `\n/** ${t.description} */\n${printInner(t)}`;
+  if (t.description) return `\n/** ${t.description} */\n${printInner(t)}`;
   return printInner(t);
 };

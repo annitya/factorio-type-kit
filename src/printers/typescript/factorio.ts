@@ -7,9 +7,9 @@ const srcDirname = resolve(__dirname, "..", "..");
 
 export const print: FactorioPrinter = async ({
   defines,
-  concepts,
-  events,
-  classSchemas,
+  // concepts,
+  // events,
+  // classSchemas,
 }) => {
   const printed = [
     `/** @noSelfInFile */`,
@@ -21,26 +21,26 @@ export const print: FactorioPrinter = async ({
 
     // concepts
     `/** concepts */`,
-    ...concepts.map(printer.print),
+    // ...concepts.map(printer.print),
 
     // classes
     `/** classes */`,
     // @todo consider applying a nominal typing hack to classes: https://github.com/andnp/SimplyTyped/blob/85fb9cdb7655ac921f38f6e21027dc27d76dcf80/src/types/utils.ts
-    ...classSchemas.map(printer.print),
+    // ...classSchemas.map(printer.print),
 
     // events
     `/** events */`,
-    ...events.map((evt) => {
-      evt.name =
-        evt.name
-          .split("_")
-          .map((chars) => {
-            const [first, ...rest] = chars.split("");
-            return [first.toLocaleUpperCase(), ...rest].join("");
-          })
-          .join("") + "Payload";
-      return printer.print(evt);
-    }),
+    // ...events.map((evt: any) => {
+    //   evt.name =
+    //     evt.name
+    //       .split("_")
+    //       .map((chars: any) => {
+    //         const [first, ...rest] = chars.split("");
+    //         return [first.toLocaleUpperCase(), ...rest].join("");
+    //       })
+    //       .join("") + "Payload";
+    //   return printer.print(evt);
+    // }),
 
     /**
      * expose global instances

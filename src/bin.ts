@@ -2,7 +2,7 @@ import * as fs from "fs/promises";
 import { produce, GenerateResult, printTs } from ".";
 import meow from "meow";
 
-const printLang = (lang: string, ir: GenerateResult) => {
+const printLang = (lang: string = 'ts', ir: GenerateResult) => {
   switch (lang) {
     case "ts":
     case "typescript":
@@ -42,7 +42,7 @@ async function go() {
     }
   );
   try {
-    const ir = await produce();
+    const ir = produce();
     const output = await printLang(cli.flags.language!, ir);
     if (cli.flags.out) {
       await fs.writeFile(cli.flags.out, output);

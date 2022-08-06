@@ -1,54 +1,45 @@
-import type { Document, IElement } from "happy-dom";
-import { queryAll } from "../batteries/dom/dom-extensions";
-import { asUrlCorrectedMarkdown } from "../batteries/markdown";
-import { PageMeta } from "../interfaces";
 import {
   any,
   intf,
-  literal,
-  objectLiteral,
-  ObjectLiteral,
-  property,
-  str,
-  Struct,
-  struct,
+  property, sym,
   Sym,
-  sym,
-  testIsType,
-  testIsTypeObjectLiteral,
-  Type,
+  testIsType
 } from "../ir/ir";
 
-const scrapeNestedDefines = (rootEl: IElement, pageMeta: PageMeta): Sym[] => {
-  const [headerEl, contentEl] = rootEl.children;
-  if (!headerEl || !contentEl) {
-    throw new Error(`unexpected defines HTML structure ${rootEl.innerHTML}`);
-  }
-  const descriptionEl = Array.from(contentEl.children).find(
-    (el) => el.tagName === "p"
-  ) as HTMLElement | undefined;
+import factorio from '../../factorio.json';
+const { defines: rawDefines } = factorio;
 
-  const memberRows = Array.from(
-    queryAll(contentEl, ".brief-members")
-  ).flatMap((el) => el.querySelectorAll("tr"));
-  return memberRows.map((el) => {
-    if (!el.id) throw new Error("missing id");
-    return sym({
-      text: el.id,
-      description: asUrlCorrectedMarkdown(
-        el.querySelector(".description")?.innerHTML.trim() || "",
-        pageMeta
-      ),
-    });
+type RawDefine = typeof factorio.defines[0] & { subkeyParentName?: string };
+
+const rawDefineToSym = (params: RawDefine): any => {
+  const { name: parentName, description = '', values = [], subkeys = [], subkeyParentName = '' } = params;
+
+  const  rootText = [subkeyParentName, parentName].filter(Boolean).join('.');
+
+  const root = sym({
+    text: rootText,
+    description,
+    jsDocDescription: ''
   });
+
+  const properties = values.map(({ name, description }) =>
+      sym({
+        text: ['defines', subkeyParentName, parentName, name].filter(Boolean).join('.'),
+        description,
+        jsDocDescription: ''
+      })
+  );
+
+  const subDefines = subkeys.map(subkey => rawDefineToSym({
+    ...subkey,
+    subkeyParentName: rootText
+  }));
+
+  const rootArray = subDefines ? [] : [root]
+  return [...rootArray, ...properties, ...subDefines];
 };
 
-const guardObjectLiteral = (o: Type): o is ObjectLiteral => {
-  if (!testIsTypeObjectLiteral(o)) throw new Error("whoops, bad obj lit");
-  return true;
-};
-
-export const ofDefines = (definesSyms: Sym[]) => {
+const ofDefines = (definesSyms: Sym[]) => {
   const root = intf({
     name: "Defines",
     isRoot: true,
@@ -80,10 +71,7 @@ export const ofDefines = (definesSyms: Sym[]) => {
   }, root);
 };
 
-export const scrapeDefines = (document: Document, pageMeta: PageMeta) =>
-  ofDefines(
-    document
-      .querySelectorAll("body > .element")
-      .flatMap((l1) => scrapeNestedDefines(l1, pageMeta))
-      .sort((a, b) => a.text.localeCompare(b.text))
-  );
+export const getDefinesFromJson = () => {
+  const symDefines = rawDefines.map(rawDefineToSym)
+  return ofDefines(symDefines.flat(10));
+}
