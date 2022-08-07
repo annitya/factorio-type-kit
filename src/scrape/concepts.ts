@@ -1,120 +1,216 @@
-import { IDocument, IElement } from "happy-dom";
-import { query, siblings } from "../batteries/dom/dom-extensions";
-import { asMarkdown } from "../batteries/markdown";
 import {
-  fn,
-  intf,
-  num,
-  ofLua,
-  property,
-  struct,
-  testIsType,
-  typdecl,
-  Type,
-  union,
+    arr,
+    typdecl,
+    ofLua,
+    struct,
+    union, intf, property, map, literal
 } from "../ir/ir";
-import { parseParam, tableMembersOfUl } from "./classes";
 
-/**
- *
- * As a SimpleItemStack
- * As a LuaTechnologyPrototype: If you have a reference to LuaTechnologyPrototype, you may pass it directly.
- * As a LuaForce: If you have a reference to LuaForce, you may pass it directly.
- */
-export const parseSpecificationConceptOption = (el: IElement) => {
-  const noAsA = el.textContent.replace(/As an? /, "");
-  let [name, ...rest] = noAsA.split("::").map((v) => v.trim());
-  const [t, ...descriptionParts] = noAsA.split(":");
-  const description = descriptionParts.join(":");
-  const type = ofLua(t);
-  type.description = description;
-  return type;
-};
+import factorio from "../../factorio.json";
 
-export const parseSpecificationConcept = ({
-  name,
-  description,
-  descriptionEl,
-  el,
-}: {
-  name: string;
-  description: string;
-  descriptionEl?: IElement;
-  el: IElement;
-}) => {
-  let members: Type[] = [];
-  // const tableUl = siblings(descriptionEl).find((el) =>
-  //   el.classList.contains("field-list")
-  // );
-  // edge-case - Position
-  // position only has examples. damn it! but it's so ubiquitous we need to support it
-  if (name === "Position") {
-    members = [
-      intf({
-        name: "Position",
-        membersByName: {
-          x: property({ name: "x", type: num({ description: "x coord" }) }),
-          y: property({ name: "y", type: num({ description: "x coord" }) }),
-        },
-      }),
-    ];
-    // } else if (tableUl) {
-    //   // edge-case: https://lua-api.factorio.com/latest/Concepts.html#SimpleItemStack
-    //   members = [
-    //     intf({
-    //       name: "tbl",
-    //       membersByName: tableMembersOfUl(tableUl),
-    //     }),
-    //   ];
-  } else {
-    const ul = query(el, ".element-content ul", "failed to find content el");
-    members = ul.children.map(parseSpecificationConceptOption);
-  }
-  return typdecl({
-    name,
-    description,
-    type: union({
-      members,
-    }),
-  });
-};
+const { concepts: rawConcepts } = factorio;
+type RawConcept = typeof rawConcepts[0];
 
-export const scrapeConcept = (el: IElement) => {
-  const content = query(el, ".element-content", "missing content el");
-  let description = "";
-  let descriptionEl = content.firstElementChild;
-  // descriptions may be something like <p></p><p></p><p>actual-description</p>
-  // :shrug:
-  while (descriptionEl?.tagName.match(/^p$/i)) {
-    description += asMarkdown(descriptionEl.textContent);
-    descriptionEl = descriptionEl.nextElementSibling;
-  }
-  const name = content.previousElementSibling.textContent.trim();
-  const fieldListEl = query(content, ".field-list");
-  const fields = fieldListEl
-    ? fieldListEl.children.filter((el) => el.textContent).map(parseParam)
-    : [];
-  // if ()
-  if (!fieldListEl && description.match(/may be specified/)) {
-    return parseSpecificationConcept({
-      name,
-      description,
-      el,
-      descriptionEl,
-    });
-  }
-  return struct({
-    name,
-    description,
-    members: fields.map((field) => {
-      return property(field);
-    }),
-  });
-};
+// @ts-ignore
+export const scrapeConcept = (rawConcept: RawConcept, isRoot = false, optional = false) => {
+    const { name, description, type } = rawConcept;
 
-export const scrapeConcepts = (document: IDocument) => {
-  const roots = Array.from(document.body.children).filter((el) =>
-    el?.classList.contains("element")
-  );
-  return roots.map(scrapeConcept);
-};
+    if (['LocalisedString', 'CircularProjectileCreationSpecification'].includes(name)) {
+        throw new Error(`Not doing it: ${name}`);
+    }
+    // @ts-ignore
+    if (['float', 'string'].includes(type)) {
+        return typdecl({
+            name,
+            description,
+            // @ts-ignore
+            type: ofLua(type, optional),
+        });
+    }
+
+    // @ts-ignore
+    const { complex_type } = type;
+    let valueType;
+
+    switch (complex_type) {
+        case 'array':
+            // @ts-ignore
+            valueType = getComplexValue(type.value, optional);
+
+            return property({
+                name,
+                description,
+                type: arr({
+                    valueType,
+                    description
+                })
+            })
+        case 'dictionary':
+            // @ts-ignore
+            valueType = getComplexValue(type.value, optional);
+            // @ts-ignore
+            let keyType = getComplexValue(type.key, optional);
+
+            return property({
+                name,
+                description,
+                type: map({
+                    keyType,
+                    valueType,
+                    description
+                })
+            });
+
+        case 'function':
+            throw new Error('Unhandled: function');
+        case 'literal':
+            // @ts-ignore
+            let value = type.value;
+
+            if (!['number', 'boolean'].includes(typeof value)) {
+                value = `"${value}"`
+            }
+
+            return literal({
+                // @ts-ignore
+                value,
+                description,
+            });
+        case 'LuaCustomTable':
+            throw new Error('Unhandled: LuaCustomTable');
+        case 'LuaLazyLoadedValue':
+            throw new Error('Unhandled: LuaLazyLoadedValue');
+        case 'struct':
+            // @ts-ignore
+            const { attributes = [] } = type;
+
+            return intf({
+                name,
+                description,
+                // @ts-ignore
+                membersByName: attributes.map(attribute => getComplexValue(attribute, optional))
+            })
+        case 'type':
+            // @ts-ignore
+            return getComplexValue(type?.value || type?.type, optional);
+        case 'table':
+            // @ts-ignore
+            const { parameters = [] } = type;
+
+            return intf({
+                name,
+                description,
+                // @ts-ignore
+                membersByName: parameters.map(parameter => getComplexValue(parameter, optional))
+            });
+        case 'tuple':
+            // @ts-ignore
+            const { parameters: tupleParameters = [] } = type;
+
+            const tupleStrings = tupleParameters
+                // @ts-ignore
+                .sort(({ order: orderA }, { order: orderB }) => orderA - orderB)
+                // @ts-ignore
+                .map(parameter => parameter.type);
+
+            return literal({
+                value: JSON.stringify(tupleStrings)
+            });
+        case 'union':
+            // @ts-ignore
+            const { options = [] } = type;
+
+            const unionType = union({
+                description,
+                // @ts-ignore
+                members: options.map(option => getComplexValue(option, optional))
+            });
+
+            if (!isRoot) {
+                return unionType;
+            }
+
+            return property({
+                name,
+                description,
+                type: unionType
+            });
+        default:
+            throw new Error(`Unknown complex type: ${complex_type}`);
+    }
+}
+
+// @ts-ignore
+const getComplexValue = (value: any, optional: boolean) => {
+    if (typeof value === "string") {
+        return ofLua(value, optional);
+    }
+
+    if (value?.complex_type) {
+        // @ts-ignore
+        return scrapeConcept({ type: value }, false, optional);
+    }
+
+    // @ts-ignore
+    const { name, type, description, optional: typeOptional } = value;
+
+    if (typeof type === "string") {
+        let parsedName = name.includes('-') ? `"${name}"` : name;
+
+        return property({
+            name: parsedName,
+            description,
+            type: ofLua(type, typeOptional)
+        });
+    }
+
+    if (typeof value?.type === 'object') {
+        return scrapeConcept(value, true, optional);
+    }
+
+    // @ts-ignore
+    return scrapeConcept({ type }, false, optional);
+}
+
+const testObject = '';
+const conceptsForParsing = testObject.length > 0 ? rawConcepts.filter(concept => concept.name === testObject) : rawConcepts;
+
+let failCount = 0;
+
+export const scrapeConcepts = () => conceptsForParsing.map(concept => {
+    try {
+        const scrapedConcept = scrapeConcept(concept, true);
+        const { name, description } = concept;
+
+        const { __type } = scrapedConcept;
+
+        if (__type === 'union') {
+            return typdecl({
+                name,
+                description,
+                type: scrapedConcept
+            })
+        }
+
+        if (!['interface', 'type', 'typedecl'].includes(__type)) {
+            return intf({
+                name,
+                description,
+                isRoot: true,
+                // @ts-ignore
+                membersByName: [scrapedConcept]
+            })
+        }
+
+        return {
+            ...scrapedConcept,
+            isRoot: true
+        }
+    } catch (e) {
+        console.error('Concept parsing failed:', concept.name, e);
+        failCount++;
+        console.error(`Failed: ${failCount}`);
+        return;
+    }
+
+}).filter(Boolean) as [];

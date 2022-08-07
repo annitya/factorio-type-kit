@@ -96,7 +96,15 @@ const printInner = (t: Type): string => {
 };
 
 export const print = (t: Type): string => {
-  if (t.jsDocDescription) return `\n${t.jsDocDescription}\n${printInner(t)}`;
-  if (t.description) return `\n/** ${t.description} */\n${printInner(t)}`;
+  const { description, jsDocDescription } = t || {};
+
+  if (jsDocDescription) {
+    return `\n${t.jsDocDescription}\n${printInner(t)}`;
+  }
+
+  if (description) {
+    return `\n/** ${t.description} */\n${printInner(t)}`;
+  }
+
   return printInner(t);
 };

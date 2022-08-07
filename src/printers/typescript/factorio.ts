@@ -7,7 +7,7 @@ const srcDirname = resolve(__dirname, "..", "..");
 
 export const print: FactorioPrinter = async ({
   defines,
-  // concepts,
+  concepts,
   // events,
   // classSchemas,
 }) => {
@@ -21,7 +21,7 @@ export const print: FactorioPrinter = async ({
 
     // concepts
     `/** concepts */`,
-    // ...concepts.map(printer.print),
+    ...concepts.map(printer.print),
 
     // classes
     `/** classes */`,

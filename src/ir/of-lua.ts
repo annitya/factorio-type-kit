@@ -20,18 +20,20 @@ const description = "";
 
 export const definitionTypes: string[] = [];
 
-export const ofLua = (ltype_: string): Type => {
+export const ofLua = (ltype_: string, isOptional: boolean = false): Type => {
   const ltype = ltype_.trim().replace("&rarr;", "→");
+
   if (!ltype) {
     throw new Error("no type to convert");
   }
-  if (ltype.match(/\(optional\)$/)) {
+
+  if (isOptional) {
     return optional({
-      type: ofLua(ltype.replace(/\(optional\)$/, "")),
+      type: ofLua(ltype),
       description,
     });
   }
-  // if (ltype.includes("optional")) debugger;
+
   if (ltype.match(/^(dictionary|CustomDictionary)(.*)/)) {
     const dictionaryParts = ltype.match(
       /^(dictionary|CustomDictionary)([^→]*)→(.*)/
@@ -46,9 +48,11 @@ export const ofLua = (ltype_: string): Type => {
       description,
     });
   }
+
   if (ltype.match(" or ")) {
-    return union({ members: ltype.split(" or ").map(ofLua), description });
+    return union({ members: ltype.split(" or ").map(orType => ofLua(orType)), description });
   }
+
   if (ltype.match(/^(array of)(.*)/)) {
     const [, , rest] = ltype.match(/^(array of)(.*)/)!;
     return arr({ valueType: ofLua(rest.trim()), description });
