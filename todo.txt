@@ -2,3 +2,4 @@ Grab JSON from web: https://lua-api.factorio.com/latest/runtime-api.json
 
 Table should be handled properly.
 Sorting for concepts (types other than tuples)?
+Add class-methods.

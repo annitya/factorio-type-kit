@@ -48,7 +48,7 @@ const printInner = (t: Type): string => {
       }
       return `${t.name}${t.isOptional ? "?" : ""}: ${print(t.type)}`;
     case "property":
-      return `${t.isReadonly ? "readonly " : ""}${t.name}: ${print(t.type)}`;
+      return `${t.isReadonly ? "readonly " : ""}"${t.name}": ${print(t.type)}`;
     case "interface":
       const inner = `{ ${Object.entries(t.membersByName)
         .map(([propName, prop]) => {

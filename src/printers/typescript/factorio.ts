@@ -9,7 +9,7 @@ export const print: FactorioPrinter = async ({
   defines,
   concepts,
   events,
-  // classSchemas,
+  classSchemas,
 }) => {
   const printed = [
     `/** @noSelfInFile */`,
@@ -26,7 +26,7 @@ export const print: FactorioPrinter = async ({
     // classes
     `/** classes */`,
     // @todo consider applying a nominal typing hack to classes: https://github.com/andnp/SimplyTyped/blob/85fb9cdb7655ac921f38f6e21027dc27d76dcf80/src/types/utils.ts
-    // ...classSchemas.map(printer.print),
+    ...classSchemas.map(printer.print),
 
     // events
     `/** events */`,

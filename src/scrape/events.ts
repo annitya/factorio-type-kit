@@ -1,4 +1,4 @@
-import { intf, ofLua, property, typdecl } from "../ir/ir";
+import { intf, property, typdecl } from "../ir/ir";
 import factorio from "../../factorio.json";
 import { getComplexValue } from './concepts';
 

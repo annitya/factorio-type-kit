@@ -1,10 +1,4 @@
-import {
-    arr,
-    typdecl,
-    ofLua,
-    struct,
-    union, intf, property, map, literal
-} from "../ir/ir";
+import { arr, intf, literal, map, ofLua, property, struct, typdecl, union } from "../ir/ir";
 
 import factorio from "../../factorio.json";
 
@@ -24,7 +18,7 @@ export const scrapeConcept = (rawConcept: RawConcept, isRoot = false, optional =
             name,
             description,
             // @ts-ignore
-            type: ofLua(type, optional),
+            type: ofLua(type, optional)
         });
     }
 
@@ -84,7 +78,7 @@ export const scrapeConcept = (rawConcept: RawConcept, isRoot = false, optional =
             return literal({
                 // @ts-ignore
                 value,
-                description,
+                description
             });
         case 'LuaCustomTable':
             throw new Error('Unhandled: LuaCustomTable');
@@ -165,10 +159,8 @@ export const getComplexValue = (value: any, optional: boolean) => {
     const { name, type, description, optional: typeOptional } = value;
 
     if (typeof type === "string") {
-        let parsedName = name.includes('-') ? `"${name}"` : name;
-
         return property({
-            name: parsedName,
+            name,
             description,
             type: ofLua(type, typeOptional)
         });
