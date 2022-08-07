@@ -37,6 +37,10 @@ export const scrapeConcept = (rawConcept: RawConcept, isRoot = false, optional =
             // @ts-ignore
             valueType = getComplexValue(type.value, optional);
 
+            if (!isRoot) {
+                return valueType;
+            }
+
             return property({
                 name,
                 description,
@@ -51,14 +55,20 @@ export const scrapeConcept = (rawConcept: RawConcept, isRoot = false, optional =
             // @ts-ignore
             let keyType = getComplexValue(type.key, optional);
 
+            const mapType = map({
+                keyType,
+                valueType,
+                description
+            });
+
+            if (!isRoot) {
+                return mapType;
+            }
+
             return property({
                 name,
                 description,
-                type: map({
-                    keyType,
-                    valueType,
-                    description
-                })
+                type: mapType
             });
 
         case 'function':
@@ -141,7 +151,7 @@ export const scrapeConcept = (rawConcept: RawConcept, isRoot = false, optional =
 }
 
 // @ts-ignore
-const getComplexValue = (value: any, optional: boolean) => {
+export const getComplexValue = (value: any, optional: boolean) => {
     if (typeof value === "string") {
         return ofLua(value, optional);
     }

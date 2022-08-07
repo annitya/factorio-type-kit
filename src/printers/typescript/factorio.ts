@@ -8,7 +8,7 @@ const srcDirname = resolve(__dirname, "..", "..");
 export const print: FactorioPrinter = async ({
   defines,
   concepts,
-  // events,
+  events,
   // classSchemas,
 }) => {
   const printed = [
@@ -30,17 +30,17 @@ export const print: FactorioPrinter = async ({
 
     // events
     `/** events */`,
-    // ...events.map((evt: any) => {
-    //   evt.name =
-    //     evt.name
-    //       .split("_")
-    //       .map((chars: any) => {
-    //         const [first, ...rest] = chars.split("");
-    //         return [first.toLocaleUpperCase(), ...rest].join("");
-    //       })
-    //       .join("") + "Payload";
-    //   return printer.print(evt);
-    // }),
+    ...events.map((evt: any) => {
+      evt.name =
+        evt.name
+          .split("_")
+          .map((chars: any) => {
+            const [first, ...rest] = chars.split("");
+            return [first.toLocaleUpperCase(), ...rest].join("");
+          })
+          .join("") + "Payload";
+      return printer.print(evt);
+    }),
 
     /**
      * expose global instances

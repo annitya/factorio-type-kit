@@ -1,6 +1,930 @@
 /** @noSelfInFile */
 /** defines */
 declare const defines: Defines;
+
+/** Factorio constants, persistent handles.
+@{see https://lua-api.factorio.com/latest/defines.html}
+Factorio does not include types associated with defines :/ */
+/** @noSelf **/
+interface Defines 
+{ alert_type: /** @noSelf **/
+{ custom: any;
+ entity_destroyed: any;
+ entity_under_attack: any;
+ no_material_for_construction: any;
+ no_storage: any;
+ not_enough_construction_robots: any;
+ not_enough_repair_packs: any;
+ train_out_of_fuel: any;
+ turret_fire: any;
+ };
+ behavior_result: /** @noSelf **/
+{ deleted: any;
+ fail: any;
+ in_progress: any;
+ success: any;
+ };
+ build_check_type: /** @noSelf **/
+{ blueprint_ghost: any;
+ ghost_revive: any;
+ manual: any;
+ manual_ghost: any;
+ script: any;
+ script_ghost: any;
+ };
+ chain_signal_state: /** @noSelf **/
+{ all_open: any;
+ none: any;
+ none_open: any;
+ partially_open: any;
+ };
+ chunk_generated_status: /** @noSelf **/
+{ basic_tiles: any;
+ corrected_tiles: any;
+ custom_tiles: any;
+ entities: any;
+ nothing: any;
+ tiles: any;
+ };
+ circuit_condition_index: /** @noSelf **/
+{ arithmetic_combinator: any;
+ constant_combinator: any;
+ decider_combinator: any;
+ inserter_circuit: any;
+ inserter_logistic: any;
+ lamp: any;
+ offshore_pump: any;
+ pump: any;
+ };
+ circuit_connector_id: /** @noSelf **/
+{ accumulator: any;
+ combinator_input: any;
+ combinator_output: any;
+ constant_combinator: any;
+ container: any;
+ electric_pole: any;
+ inserter: any;
+ lamp: any;
+ linked_container: any;
+ offshore_pump: any;
+ programmable_speaker: any;
+ pump: any;
+ rail_chain_signal: any;
+ rail_signal: any;
+ roboport: any;
+ storage_tank: any;
+ wall: any;
+ };
+ command: /** @noSelf **/
+{ attack: any;
+ attack_area: any;
+ build_base: any;
+ compound: any;
+ flee: any;
+ go_to_location: any;
+ group: any;
+ stop: any;
+ wander: any;
+ };
+ compound_command: /** @noSelf **/
+{ logical_and: any;
+ logical_or: any;
+ return_last: any;
+ };
+ control_behavior: /** @noSelf **/
+{ inserter: /** @noSelf **/
+{ circuit_mode_of_operation: /** @noSelf **/
+{ enable_disable: any;
+ none: any;
+ read_hand_contents: any;
+ set_filters: any;
+ set_stack_size: any;
+ };
+ hand_read_mode: /** @noSelf **/
+{ hold: any;
+ pulse: any;
+ };
+ };
+ lamp: /** @noSelf **/
+{ circuit_mode_of_operation: /** @noSelf **/
+{ use_colors: any;
+ };
+ };
+ logistic_container: /** @noSelf **/
+{ circuit_mode_of_operation: /** @noSelf **/
+{ send_contents: any;
+ set_requests: any;
+ };
+ };
+ mining_drill: /** @noSelf **/
+{ resource_read_mode: /** @noSelf **/
+{ entire_patch: any;
+ this_miner: any;
+ };
+ };
+ transport_belt: /** @noSelf **/
+{ content_read_mode: /** @noSelf **/
+{ hold: any;
+ pulse: any;
+ };
+ };
+ type: /** @noSelf **/
+{ accumulator: any;
+ arithmetic_combinator: any;
+ constant_combinator: any;
+ container: any;
+ decider_combinator: any;
+ generic_on_off: any;
+ inserter: any;
+ lamp: any;
+ logistic_container: any;
+ mining_drill: any;
+ programmable_speaker: any;
+ rail_chain_signal: any;
+ rail_signal: any;
+ roboport: any;
+ storage_tank: any;
+ train_stop: any;
+ transport_belt: any;
+ wall: any;
+ };
+ };
+ controllers: /** @noSelf **/
+{ character: any;
+ cutscene: any;
+ editor: any;
+ ghost: any;
+ god: any;
+ spectator: any;
+ };
+ deconstruction_item: /** @noSelf **/
+{ entity_filter_mode: /** @noSelf **/
+{ blacklist: any;
+ whitelist: any;
+ };
+ tile_filter_mode: /** @noSelf **/
+{ blacklist: any;
+ whitelist: any;
+ };
+ tile_selection_mode: /** @noSelf **/
+{ always: any;
+ never: any;
+ normal: any;
+ only: any;
+ };
+ };
+ difficulty: /** @noSelf **/
+{ easy: any;
+ hard: any;
+ normal: any;
+ };
+ difficulty_settings: /** @noSelf **/
+{ recipe_difficulty: /** @noSelf **/
+{ expensive: any;
+ normal: any;
+ };
+ technology_difficulty: /** @noSelf **/
+{ expensive: any;
+ normal: any;
+ };
+ };
+ direction: /** @noSelf **/
+{ east: any;
+ north: any;
+ northeast: any;
+ northwest: any;
+ south: any;
+ southeast: any;
+ southwest: any;
+ west: any;
+ };
+ disconnect_reason: /** @noSelf **/
+{ afk: any;
+ banned: any;
+ cannot_keep_up: any;
+ desync_limit_reached: any;
+ dropped: any;
+ kicked: any;
+ kicked_and_deleted: any;
+ quit: any;
+ reconnect: any;
+ switching_servers: any;
+ wrong_input: any;
+ };
+ distraction: /** @noSelf **/
+{ by_anything: any;
+ by_damage: any;
+ by_enemy: any;
+ none: any;
+ };
+ entity_status: /** @noSelf **/
+{ cant_divide_segments: any;
+ charging: any;
+ closed_by_circuit_network: any;
+ disabled: any;
+ disabled_by_control_behavior: any;
+ disabled_by_script: any;
+ discharging: any;
+ fluid_ingredient_shortage: any;
+ full_output: any;
+ fully_charged: any;
+ item_ingredient_shortage: any;
+ launching_rocket: any;
+ low_input_fluid: any;
+ low_power: any;
+ low_temperature: any;
+ marked_for_deconstruction: any;
+ missing_required_fluid: any;
+ missing_science_packs: any;
+ networks_connected: any;
+ networks_disconnected: any;
+ no_ammo: any;
+ no_fuel: any;
+ no_ingredients: any;
+ no_input_fluid: any;
+ no_minable_resources: any;
+ no_modules_to_transmit: any;
+ no_power: any;
+ no_recipe: any;
+ no_research_in_progress: any;
+ normal: any;
+ not_connected_to_rail: any;
+ not_plugged_in_electric_network: any;
+ opened_by_circuit_network: any;
+ out_of_logistic_network: any;
+ preparing_rocket_for_launch: any;
+ recharging_after_power_outage: any;
+ turned_off_during_daytime: any;
+ waiting_for_source_items: any;
+ waiting_for_space_in_destination: any;
+ waiting_for_target_to_be_built: any;
+ waiting_for_train: any;
+ waiting_to_launch_rocket: any;
+ working: any;
+ };
+ events: /** @noSelf **/
+{ on_ai_command_completed: any;
+ on_area_cloned: any;
+ on_biter_base_built: any;
+ on_brush_cloned: any;
+ on_build_base_arrived: any;
+ on_built_entity: any;
+ on_cancelled_deconstruction: any;
+ on_cancelled_upgrade: any;
+ on_character_corpse_expired: any;
+ on_chart_tag_added: any;
+ on_chart_tag_modified: any;
+ on_chart_tag_removed: any;
+ on_chunk_charted: any;
+ on_chunk_deleted: any;
+ on_chunk_generated: any;
+ on_combat_robot_expired: any;
+ on_console_chat: any;
+ on_console_command: any;
+ on_cutscene_cancelled: any;
+ on_cutscene_waypoint_reached: any;
+ on_difficulty_settings_changed: any;
+ on_entity_cloned: any;
+ on_entity_damaged: any;
+ on_entity_destroyed: any;
+ on_entity_died: any;
+ on_entity_logistic_slot_changed: any;
+ on_entity_renamed: any;
+ on_entity_settings_pasted: any;
+ on_entity_spawned: any;
+ on_equipment_inserted: any;
+ on_equipment_removed: any;
+ on_force_cease_fire_changed: any;
+ on_force_created: any;
+ on_force_friends_changed: any;
+ on_force_reset: any;
+ on_forces_merged: any;
+ on_forces_merging: any;
+ on_game_created_from_scenario: any;
+ on_gui_checked_state_changed: any;
+ on_gui_click: any;
+ on_gui_closed: any;
+ on_gui_confirmed: any;
+ on_gui_elem_changed: any;
+ on_gui_location_changed: any;
+ on_gui_opened: any;
+ on_gui_selected_tab_changed: any;
+ on_gui_selection_state_changed: any;
+ on_gui_switch_state_changed: any;
+ on_gui_text_changed: any;
+ on_gui_value_changed: any;
+ on_land_mine_armed: any;
+ on_lua_shortcut: any;
+ on_marked_for_deconstruction: any;
+ on_marked_for_upgrade: any;
+ on_market_item_purchased: any;
+ on_mod_item_opened: any;
+ on_permission_group_added: any;
+ on_permission_group_deleted: any;
+ on_permission_group_edited: any;
+ on_permission_string_imported: any;
+ on_picked_up_item: any;
+ on_player_alt_selected_area: any;
+ on_player_ammo_inventory_changed: any;
+ on_player_armor_inventory_changed: any;
+ on_player_banned: any;
+ on_player_built_tile: any;
+ on_player_cancelled_crafting: any;
+ on_player_changed_force: any;
+ on_player_changed_position: any;
+ on_player_changed_surface: any;
+ on_player_cheat_mode_disabled: any;
+ on_player_cheat_mode_enabled: any;
+ on_player_clicked_gps_tag: any;
+ on_player_configured_blueprint: any;
+ on_player_configured_spider_remote: any;
+ on_player_crafted_item: any;
+ on_player_created: any;
+ on_player_cursor_stack_changed: any;
+ on_player_deconstructed_area: any;
+ on_player_demoted: any;
+ on_player_died: any;
+ on_player_display_resolution_changed: any;
+ on_player_display_scale_changed: any;
+ on_player_driving_changed_state: any;
+ on_player_dropped_item: any;
+ on_player_fast_transferred: any;
+ on_player_flushed_fluid: any;
+ on_player_gun_inventory_changed: any;
+ on_player_joined_game: any;
+ on_player_kicked: any;
+ on_player_left_game: any;
+ on_player_main_inventory_changed: any;
+ on_player_mined_entity: any;
+ on_player_mined_item: any;
+ on_player_mined_tile: any;
+ on_player_muted: any;
+ on_player_pipette: any;
+ on_player_placed_equipment: any;
+ on_player_promoted: any;
+ on_player_removed: any;
+ on_player_removed_equipment: any;
+ on_player_repaired_entity: any;
+ on_player_respawned: any;
+ on_player_reverse_selected_area: any;
+ on_player_rotated_entity: any;
+ on_player_selected_area: any;
+ on_player_set_quick_bar_slot: any;
+ on_player_setup_blueprint: any;
+ on_player_toggled_alt_mode: any;
+ on_player_toggled_map_editor: any;
+ on_player_trash_inventory_changed: any;
+ on_player_unbanned: any;
+ on_player_unmuted: any;
+ on_player_used_capsule: any;
+ on_player_used_spider_remote: any;
+ on_post_entity_died: any;
+ on_pre_build: any;
+ on_pre_chunk_deleted: any;
+ on_pre_entity_settings_pasted: any;
+ on_pre_ghost_deconstructed: any;
+ on_pre_ghost_upgraded: any;
+ on_pre_permission_group_deleted: any;
+ on_pre_permission_string_imported: any;
+ on_pre_player_crafted_item: any;
+ on_pre_player_died: any;
+ on_pre_player_left_game: any;
+ on_pre_player_mined_item: any;
+ on_pre_player_removed: any;
+ on_pre_player_toggled_map_editor: any;
+ on_pre_robot_exploded_cliff: any;
+ on_pre_script_inventory_resized: any;
+ on_pre_surface_cleared: any;
+ on_pre_surface_deleted: any;
+ on_research_cancelled: any;
+ on_research_finished: any;
+ on_research_reversed: any;
+ on_research_started: any;
+ on_resource_depleted: any;
+ on_robot_built_entity: any;
+ on_robot_built_tile: any;
+ on_robot_exploded_cliff: any;
+ on_robot_mined: any;
+ on_robot_mined_entity: any;
+ on_robot_mined_tile: any;
+ on_robot_pre_mined: any;
+ on_rocket_launch_ordered: any;
+ on_rocket_launched: any;
+ on_runtime_mod_setting_changed: any;
+ on_script_inventory_resized: any;
+ on_script_path_request_finished: any;
+ on_script_trigger_effect: any;
+ on_sector_scanned: any;
+ on_selected_entity_changed: any;
+ on_spider_command_completed: any;
+ on_string_translated: any;
+ on_surface_cleared: any;
+ on_surface_created: any;
+ on_surface_deleted: any;
+ on_surface_imported: any;
+ on_surface_renamed: any;
+ on_technology_effects_reset: any;
+ on_tick: any;
+ on_train_changed_state: any;
+ on_train_created: any;
+ on_train_schedule_changed: any;
+ on_trigger_created_entity: any;
+ on_trigger_fired_artillery: any;
+ on_unit_added_to_group: any;
+ on_unit_group_created: any;
+ on_unit_group_finished_gathering: any;
+ on_unit_removed_from_group: any;
+ on_worker_robot_expired: any;
+ script_raised_built: any;
+ script_raised_destroy: any;
+ script_raised_revive: any;
+ script_raised_set_tiles: any;
+ };
+ flow_precision_index: /** @noSelf **/
+{ fifty_hours: any;
+ five_seconds: any;
+ one_hour: any;
+ one_minute: any;
+ one_thousand_hours: any;
+ ten_hours: any;
+ ten_minutes: any;
+ two_hundred_fifty_hours: any;
+ };
+ group_state: /** @noSelf **/
+{ attacking_distraction: any;
+ attacking_target: any;
+ finished: any;
+ gathering: any;
+ moving: any;
+ pathfinding: any;
+ wander_in_group: any;
+ };
+ gui_type: /** @noSelf **/
+{ achievement: any;
+ blueprint_library: any;
+ bonus: any;
+ controller: any;
+ custom: any;
+ entity: any;
+ equipment: any;
+ item: any;
+ logistic: any;
+ none: any;
+ other_player: any;
+ permissions: any;
+ player_management: any;
+ production: any;
+ research: any;
+ script_inventory: any;
+ server_management: any;
+ tile: any;
+ trains: any;
+ tutorials: any;
+ };
+ input_action: /** @noSelf **/
+{ activate_copy: any;
+ activate_cut: any;
+ activate_paste: any;
+ add_permission_group: any;
+ add_train_station: any;
+ admin_action: any;
+ alt_select_area: any;
+ alt_select_blueprint_entities: any;
+ alternative_copy: any;
+ begin_mining: any;
+ begin_mining_terrain: any;
+ build: any;
+ build_rail: any;
+ build_terrain: any;
+ cancel_craft: any;
+ cancel_deconstruct: any;
+ cancel_new_blueprint: any;
+ cancel_research: any;
+ cancel_upgrade: any;
+ change_active_character_tab: any;
+ change_active_item_group_for_crafting: any;
+ change_active_item_group_for_filters: any;
+ change_active_quick_bar: any;
+ change_arithmetic_combinator_parameters: any;
+ change_decider_combinator_parameters: any;
+ change_entity_label: any;
+ change_item_description: any;
+ change_item_label: any;
+ change_multiplayer_config: any;
+ change_picking_state: any;
+ change_programmable_speaker_alert_parameters: any;
+ change_programmable_speaker_circuit_parameters: any;
+ change_programmable_speaker_parameters: any;
+ change_riding_state: any;
+ change_shooting_state: any;
+ change_train_stop_station: any;
+ change_train_wait_condition: any;
+ change_train_wait_condition_data: any;
+ clear_cursor: any;
+ connect_rolling_stock: any;
+ copy: any;
+ copy_entity_settings: any;
+ copy_opened_blueprint: any;
+ copy_opened_item: any;
+ craft: any;
+ cursor_split: any;
+ cursor_transfer: any;
+ custom_input: any;
+ cycle_blueprint_book_backwards: any;
+ cycle_blueprint_book_forwards: any;
+ deconstruct: any;
+ delete_blueprint_library: any;
+ delete_blueprint_record: any;
+ delete_custom_tag: any;
+ delete_permission_group: any;
+ destroy_item: any;
+ destroy_opened_item: any;
+ disconnect_rolling_stock: any;
+ drag_train_schedule: any;
+ drag_train_wait_condition: any;
+ drop_blueprint_record: any;
+ drop_item: any;
+ edit_blueprint_tool_preview: any;
+ edit_custom_tag: any;
+ edit_permission_group: any;
+ export_blueprint: any;
+ fast_entity_split: any;
+ fast_entity_transfer: any;
+ flush_opened_entity_fluid: any;
+ flush_opened_entity_specific_fluid: any;
+ go_to_train_station: any;
+ grab_blueprint_record: any;
+ gui_checked_state_changed: any;
+ gui_click: any;
+ gui_confirmed: any;
+ gui_elem_changed: any;
+ gui_location_changed: any;
+ gui_selected_tab_changed: any;
+ gui_selection_state_changed: any;
+ gui_switch_state_changed: any;
+ gui_text_changed: any;
+ gui_value_changed: any;
+ import_blueprint: any;
+ import_blueprint_string: any;
+ import_blueprints_filtered: any;
+ import_permissions_string: any;
+ inventory_split: any;
+ inventory_transfer: any;
+ launch_rocket: any;
+ lua_shortcut: any;
+ map_editor_action: any;
+ market_offer: any;
+ mod_settings_changed: any;
+ open_achievements_gui: any;
+ open_blueprint_library_gui: any;
+ open_blueprint_record: any;
+ open_bonus_gui: any;
+ open_character_gui: any;
+ open_current_vehicle_gui: any;
+ open_equipment: any;
+ open_gui: any;
+ open_item: any;
+ open_logistic_gui: any;
+ open_mod_item: any;
+ open_parent_of_opened_item: any;
+ open_production_gui: any;
+ open_technology_gui: any;
+ open_tips_and_tricks_gui: any;
+ open_train_gui: any;
+ open_train_station_gui: any;
+ open_trains_gui: any;
+ paste_entity_settings: any;
+ place_equipment: any;
+ quick_bar_pick_slot: any;
+ quick_bar_set_selected_page: any;
+ quick_bar_set_slot: any;
+ reassign_blueprint: any;
+ remove_cables: any;
+ remove_train_station: any;
+ reset_assembling_machine: any;
+ reset_item: any;
+ reverse_select_area: any;
+ rotate_entity: any;
+ select_area: any;
+ select_blueprint_entities: any;
+ select_entity_slot: any;
+ select_item: any;
+ select_mapper_slot: any;
+ select_next_valid_gun: any;
+ select_tile_slot: any;
+ send_spidertron: any;
+ set_auto_launch_rocket: any;
+ set_autosort_inventory: any;
+ set_behavior_mode: any;
+ set_car_weapons_control: any;
+ set_circuit_condition: any;
+ set_circuit_mode_of_operation: any;
+ set_controller_logistic_trash_filter_item: any;
+ set_deconstruction_item_tile_selection_mode: any;
+ set_deconstruction_item_trees_and_rocks_only: any;
+ set_entity_color: any;
+ set_entity_energy_property: any;
+ set_entity_logistic_trash_filter_item: any;
+ set_filter: any;
+ set_flat_controller_gui: any;
+ set_heat_interface_mode: any;
+ set_heat_interface_temperature: any;
+ set_infinity_container_filter_item: any;
+ set_infinity_container_remove_unfiltered_items: any;
+ set_infinity_pipe_filter: any;
+ set_inserter_max_stack_size: any;
+ set_inventory_bar: any;
+ set_linked_container_link_i_d: any;
+ set_logistic_filter_item: any;
+ set_logistic_filter_signal: any;
+ set_player_color: any;
+ set_recipe_notifications: any;
+ set_request_from_buffers: any;
+ set_research_finished_stops_game: any;
+ set_signal: any;
+ set_splitter_priority: any;
+ set_train_stopped: any;
+ set_trains_limit: any;
+ set_vehicle_automatic_targeting_parameters: any;
+ setup_assembling_machine: any;
+ setup_blueprint: any;
+ setup_single_blueprint_record: any;
+ smart_pipette: any;
+ spawn_item: any;
+ stack_split: any;
+ stack_transfer: any;
+ start_repair: any;
+ start_research: any;
+ start_walking: any;
+ stop_building_by_moving: any;
+ switch_connect_to_logistic_network: any;
+ switch_constant_combinator_state: any;
+ switch_inserter_filter_mode_state: any;
+ switch_power_switch_state: any;
+ switch_to_rename_stop_gui: any;
+ take_equipment: any;
+ toggle_deconstruction_item_entity_filter_mode: any;
+ toggle_deconstruction_item_tile_filter_mode: any;
+ toggle_driving: any;
+ toggle_enable_vehicle_logistics_while_moving: any;
+ toggle_entity_logistic_requests: any;
+ toggle_equipment_movement_bonus: any;
+ toggle_map_editor: any;
+ toggle_personal_logistic_requests: any;
+ toggle_personal_roboport: any;
+ toggle_show_entity_info: any;
+ translate_string: any;
+ undo: any;
+ upgrade: any;
+ upgrade_opened_blueprint_by_item: any;
+ upgrade_opened_blueprint_by_record: any;
+ use_artillery_remote: any;
+ use_item: any;
+ wire_dragging: any;
+ write_to_console: any;
+ };
+ input_method: /** @noSelf **/
+{ game_controller: any;
+ keyboard_and_mouse: any;
+ };
+ inventory: /** @noSelf **/
+{ artillery_turret_ammo: any;
+ artillery_wagon_ammo: any;
+ assembling_machine_input: any;
+ assembling_machine_modules: any;
+ assembling_machine_output: any;
+ beacon_modules: any;
+ burnt_result: any;
+ car_ammo: any;
+ car_trunk: any;
+ cargo_wagon: any;
+ character_ammo: any;
+ character_armor: any;
+ character_corpse: any;
+ character_guns: any;
+ character_main: any;
+ character_trash: any;
+ character_vehicle: any;
+ chest: any;
+ editor_ammo: any;
+ editor_armor: any;
+ editor_guns: any;
+ editor_main: any;
+ fuel: any;
+ furnace_modules: any;
+ furnace_result: any;
+ furnace_source: any;
+ god_main: any;
+ item_main: any;
+ lab_input: any;
+ lab_modules: any;
+ mining_drill_modules: any;
+ roboport_material: any;
+ roboport_robot: any;
+ robot_cargo: any;
+ robot_repair: any;
+ rocket: any;
+ rocket_silo_input: any;
+ rocket_silo_modules: any;
+ rocket_silo_output: any;
+ rocket_silo_result: any;
+ rocket_silo_rocket: any;
+ spider_ammo: any;
+ spider_trash: any;
+ spider_trunk: any;
+ turret_ammo: any;
+ };
+ logistic_member_index: /** @noSelf **/
+{ character_provider: any;
+ character_requester: any;
+ character_storage: any;
+ generic_on_off_behavior: any;
+ logistic_container: any;
+ vehicle_storage: any;
+ };
+ logistic_mode: /** @noSelf **/
+{ active_provider: any;
+ buffer: any;
+ none: any;
+ passive_provider: any;
+ requester: any;
+ storage: any;
+ };
+ mouse_button_type: /** @noSelf **/
+{ left: any;
+ middle: any;
+ none: any;
+ right: any;
+ };
+ rail_connection_direction: /** @noSelf **/
+{ left: any;
+ none: any;
+ right: any;
+ straight: any;
+ };
+ rail_direction: /** @noSelf **/
+{ back: any;
+ front: any;
+ };
+ relative_gui_position: /** @noSelf **/
+{ bottom: any;
+ left: any;
+ right: any;
+ top: any;
+ };
+ relative_gui_type: /** @noSelf **/
+{ accumulator_gui: any;
+ achievement_gui: any;
+ additional_entity_info_gui: any;
+ admin_gui: any;
+ arithmetic_combinator_gui: any;
+ armor_gui: any;
+ assembling_machine_gui: any;
+ assembling_machine_select_recipe_gui: any;
+ beacon_gui: any;
+ blueprint_book_gui: any;
+ blueprint_library_gui: any;
+ blueprint_setup_gui: any;
+ bonus_gui: any;
+ burner_equipment_gui: any;
+ car_gui: any;
+ constant_combinator_gui: any;
+ container_gui: any;
+ controller_gui: any;
+ decider_combinator_gui: any;
+ deconstruction_item_gui: any;
+ electric_energy_interface_gui: any;
+ electric_network_gui: any;
+ entity_variations_gui: any;
+ entity_with_energy_source_gui: any;
+ equipment_grid_gui: any;
+ furnace_gui: any;
+ generic_on_off_entity_gui: any;
+ heat_interface_gui: any;
+ infinity_pipe_gui: any;
+ inserter_gui: any;
+ item_with_inventory_gui: any;
+ lab_gui: any;
+ lamp_gui: any;
+ linked_container_gui: any;
+ loader_gui: any;
+ logistic_gui: any;
+ market_gui: any;
+ mining_drill_gui: any;
+ other_player_gui: any;
+ permissions_gui: any;
+ pipe_gui: any;
+ power_switch_gui: any;
+ production_gui: any;
+ programmable_speaker_gui: any;
+ rail_chain_signal_gui: any;
+ rail_signal_gui: any;
+ reactor_gui: any;
+ rename_stop_gui: any;
+ resource_entity_gui: any;
+ roboport_gui: any;
+ rocket_silo_gui: any;
+ script_inventory_gui: any;
+ server_config_gui: any;
+ spider_vehicle_gui: any;
+ splitter_gui: any;
+ standalone_character_gui: any;
+ storage_tank_gui: any;
+ tile_variations_gui: any;
+ train_gui: any;
+ train_stop_gui: any;
+ trains_gui: any;
+ transport_belt_gui: any;
+ upgrade_item_gui: any;
+ wall_gui: any;
+ };
+ render_mode: /** @noSelf **/
+{ chart: any;
+ chart_zoomed_in: any;
+ game: any;
+ };
+ rich_text_setting: /** @noSelf **/
+{ disabled: any;
+ enabled: any;
+ highlight: any;
+ };
+ riding: /** @noSelf **/
+{ acceleration: /** @noSelf **/
+{ accelerating: any;
+ braking: any;
+ nothing: any;
+ reversing: any;
+ };
+ direction: /** @noSelf **/
+{ left: any;
+ right: any;
+ straight: any;
+ };
+ };
+ rocket_silo_status: /** @noSelf **/
+{ arms_advance: any;
+ arms_retract: any;
+ building_rocket: any;
+ create_rocket: any;
+ doors_closing: any;
+ doors_opened: any;
+ doors_opening: any;
+ engine_starting: any;
+ launch_started: any;
+ launch_starting: any;
+ lights_blinking_close: any;
+ lights_blinking_open: any;
+ rocket_flying: any;
+ rocket_ready: any;
+ rocket_rising: any;
+ };
+ shooting: /** @noSelf **/
+{ not_shooting: any;
+ shooting_enemies: any;
+ shooting_selected: any;
+ };
+ signal_state: /** @noSelf **/
+{ closed: any;
+ open: any;
+ reserved: any;
+ reserved_by_circuit_network: any;
+ };
+ train_state: /** @noSelf **/
+{ arrive_signal: any;
+ arrive_station: any;
+ destination_full: any;
+ manual_control: any;
+ manual_control_stop: any;
+ no_path: any;
+ no_schedule: any;
+ on_the_path: any;
+ path_lost: any;
+ wait_signal: any;
+ wait_station: any;
+ };
+ transport_line: /** @noSelf **/
+{ left_line: any;
+ left_split_line: any;
+ left_underground_line: any;
+ right_line: any;
+ right_split_line: any;
+ right_underground_line: any;
+ secondary_left_line: any;
+ secondary_left_split_line: any;
+ secondary_right_line: any;
+ secondary_right_split_line: any;
+ };
+ wire_connection_id: /** @noSelf **/
+{ electric_pole: any;
+ power_switch_left: any;
+ power_switch_right: any;
+ };
+ wire_type: /** @noSelf **/
+{ copper: any;
+ green: any;
+ red: any;
+ };
+ } 
 /** concepts */
 
 /** Depending on the value of `filter`, the table may take additional fields. `filter` may be one of the following: */
@@ -2558,6 +3482,2926 @@ wire: typeof defines.wire_type;
  } 
 /** classes */
 /** events */
+
+/** Called when a [CustomInput](https://wiki.factorio.com/Prototype/CustomInput) is activated. */
+type CustomInputEventPayload = /** @noSelf **/
+{ 
+/** The mouse cursor position when the custom input was activated. */
+cursor_position: MapPosition;
+ 
+/** The prototype name of the custom input that was activated. */
+input_name: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player that activated the custom input. */
+player_index: number;
+ 
+/** Information about the prototype that is selected when the custom input is used. Needs to be enabled on the custom input's prototype. `nil` if none is selected. */
+selected_prototype: (null | SelectedPrototypeData);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a unit/group completes a command. */
+type OnAiCommandCompletedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ result: typeof defines.behavior_result;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** unit_number/group_number of the unit/group which just completed a command. */
+unit_number: number;
+ 
+/** Was this command generated by a distraction. */
+was_distracted: boolean;
+ }
+
+/** Called when an area of the map is cloned. */
+type OnAreaClonedPayload = /** @noSelf **/
+{ clear_destination_decoratives: boolean;
+ clear_destination_entities: boolean;
+ clone_decoratives: boolean;
+ clone_entities: boolean;
+ clone_tiles: boolean;
+ destination_area: BoundingBox;
+ destination_force: (null | LuaForce);
+ destination_surface: LuaSurface;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ source_area: BoundingBox;
+ source_surface: LuaSurface;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a biter migration builds a base. */
+type OnBiterBaseBuiltPayload = /** @noSelf **/
+{ 
+/** The entity that was built. */
+entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a set of positions on the map is cloned. */
+type OnBrushClonedPayload = /** @noSelf **/
+{ clear_destination_decoratives: boolean;
+ clear_destination_entities: boolean;
+ clone_decoratives: boolean;
+ clone_entities: boolean;
+ clone_tiles: boolean;
+ destination_force: (null | LuaForce);
+ destination_offset: TilePosition;
+ destination_surface: LuaSurface;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ source_offset: TilePosition;
+ source_positions: TilePosition;
+ source_surface: LuaSurface;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a [defines.command.build_base](defines.command.build_base) command reaches its destination, and before building starts. */
+type OnBuildBaseArrivedPayload = /** @noSelf **/
+{ 
+/** The unit group the command was assigned to. */
+group: (null | LuaUnitGroup);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The unit the command was assigned to. */
+unit: (null | LuaEntity);
+ }
+
+/** Called when player builds something. Can be filtered using [LuaPlayerBuiltEntityEventFilter](LuaPlayerBuiltEntityEventFilter). */
+type OnBuiltEntityPayload = /** @noSelf **/
+{ created_entity: LuaEntity;
+ 
+/** The item prototype used to build the entity. Note this won't exist in some situations (built from blueprint, undo, etc). */
+item: (null | LuaItemPrototype);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ stack: LuaItemStack;
+ 
+/** The tags associated with this entity if any. */
+tags: (null | Tags);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the deconstruction of an entity is canceled. Can be filtered using [LuaEntityDeconstructionCancelledEventFilter](LuaEntityDeconstructionCancelledEventFilter). */
+type OnCancelledDeconstructionPayload = /** @noSelf **/
+{ entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: (null | number);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the upgrade of an entity is canceled. Can be filtered using [LuaUpgradeCancelledEventFilter](LuaUpgradeCancelledEventFilter). */
+type OnCancelledUpgradePayload = /** @noSelf **/
+{ direction: (null | typeof defines.direction);
+ entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: (null | number);
+ target: LuaEntityPrototype;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a character corpse expires due to timeout or all of the items being removed from it. */
+type OnCharacterCorpseExpiredPayload = /** @noSelf **/
+{ 
+/** The corpse. */
+corpse: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a chart tag is created. */
+type OnChartTagAddedPayload = /** @noSelf **/
+{ force: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: (null | number);
+ tag: LuaCustomChartTag;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a chart tag is modified by a player. */
+type OnChartTagModifiedPayload = /** @noSelf **/
+{ force: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ old_icon: (null | SignalID);
+ old_player: (null | number);
+ old_text: string;
+ player_index: (null | number);
+ tag: LuaCustomChartTag;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called just before a chart tag is deleted. */
+type OnChartTagRemovedPayload = /** @noSelf **/
+{ force: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: (null | number);
+ tag: LuaCustomChartTag;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a chunk is charted or re-charted. */
+type OnChunkChartedPayload = /** @noSelf **/
+{ 
+/** Area of the chunk. */
+area: BoundingBox;
+ force: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ position: ChunkPosition;
+ surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when one or more chunks are deleted using [LuaSurface::delete_chunk](LuaSurface::delete_chunk). */
+type OnChunkDeletedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The chunks deleted. */
+positions: ChunkPosition;
+ surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a chunk is generated. */
+type OnChunkGeneratedPayload = /** @noSelf **/
+{ 
+/** Area of the chunk. */
+area: BoundingBox;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Position of the chunk. */
+position: ChunkPosition;
+ 
+/** The surface the chunk is on. */
+surface: LuaSurface;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a combat robot expires through a lack of energy, or timeout. */
+type OnCombatRobotExpiredPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The entity that owns the robot if any. */
+owner: (null | LuaEntity);
+ robot: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a message is sent to the in-game console, either by a player or through the server interface. */
+type OnConsoleChatPayload = /** @noSelf **/
+{ 
+/** The chat message that was sent. */
+message: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player doing the chatting, if any. */
+player_index: (null | number);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when someone enters a command-like message regardless of it being a valid command. */
+type OnConsoleCommandPayload = /** @noSelf **/
+{ 
+/** The command as typed without the preceding forward slash ('/'). */
+command: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The parameters provided if any. */
+parameters: string;
+ 
+/** The player if any. */
+player_index: (null | number);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a cutscene is cancelled by the player or by script. */
+type OnCutsceneCancelledPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player the cutscene was shown to. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a cutscene is playing, each time it reaches a waypoint in that cutscene.
+
+This refers to an index in the table previously passed to set_controller which started the cutscene. */
+type OnCutsceneWaypointReachedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player index of the player viewing the cutscene. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The index of the waypoint we just completed. */
+waypoint_index: number;
+ }
+
+/** Called when the map difficulty settings are changed. */
+type OnDifficultySettingsChangedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ old_recipe_difficulty: number;
+ old_technology_difficulty: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when an entity is cloned. Can be filtered for the source entity using [LuaEntityClonedEventFilter](LuaEntityClonedEventFilter). */
+type OnEntityClonedPayload = /** @noSelf **/
+{ destination: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ source: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when an entity is damaged. Can be filtered using [LuaEntityDamagedEventFilter](LuaEntityDamagedEventFilter). */
+type OnEntityDamagedPayload = /** @noSelf **/
+{ 
+/** The entity that did the attacking if available. */
+cause: (null | LuaEntity);
+ damage_type: LuaDamagePrototype;
+ entity: LuaEntity;
+ 
+/** The damage amount after resistances. */
+final_damage_amount: number;
+ 
+/** The health of the entity after the damage was applied. */
+final_health: number;
+ 
+/** The force that did the attacking if any. */
+force: (null | LuaForce);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The damage amount before resistances. */
+original_damage_amount: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after an entity is destroyed that has been registered with [LuaBootstrap::register_on_entity_destroyed](LuaBootstrap::register_on_entity_destroyed). */
+type OnEntityDestroyedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The number returned by [register_on_entity_destroyed](LuaBootstrap::register_on_entity_destroyed) to uniquely identify this entity during this event. */
+registration_number: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The [LuaEntity::unit_number](LuaEntity::unit_number) of the destroyed entity, if it had one. */
+unit_number: (null | number);
+ }
+
+/** Called when an entity dies. Can be filtered using [LuaEntityDiedEventFilter](LuaEntityDiedEventFilter). */
+type OnEntityDiedPayload = /** @noSelf **/
+{ 
+/** The entity that did the killing if available. */
+cause: (null | LuaEntity);
+ 
+/** The damage type if any. */
+damage_type: (null | LuaDamagePrototype);
+ 
+/** The entity that died. */
+entity: LuaEntity;
+ 
+/** The force that did the killing if any. */
+force: (null | LuaForce);
+ 
+/** The loot generated by this entity if any. */
+loot: LuaInventory;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when one of an entity's personal logistic slots changes. */
+type OnEntityLogisticSlotChangedPayload = /** @noSelf **/
+{ 
+/** The entity for whom a logistic slot was changed. */
+entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who changed the slot, or `nil` if changed by script. */
+player_index: (null | number);
+ 
+/** The slot index that was changed. */
+slot_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after an entity has been renamed either by the player or through script. */
+type OnEntityRenamedPayload = /** @noSelf **/
+{ by_script: boolean;
+ entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ old_name: string;
+ 
+/** If by_script is true this will not be included. */
+player_index: (null | number);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after entity copy-paste is done. */
+type OnEntitySettingsPastedPayload = /** @noSelf **/
+{ 
+/** The destination entity settings were copied to. */
+destination: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** The source entity settings were copied from. */
+source: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when an entity is spawned by a EnemySpawner */
+type OnEntitySpawnedPayload = /** @noSelf **/
+{ entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ spawner: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after equipment is inserted into an equipment grid. */
+type OnEquipmentInsertedPayload = /** @noSelf **/
+{ 
+/** The equipment inserted. */
+equipment: LuaEquipment;
+ 
+/** The equipment grid inserted into. */
+grid: LuaEquipmentGrid;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after equipment is removed from an equipment grid. */
+type OnEquipmentRemovedPayload = /** @noSelf **/
+{ 
+/** The count of equipment removed. */
+count: number;
+ 
+/** The equipment removed. */
+equipment: string;
+ 
+/** The equipment grid removed from. */
+grid: LuaEquipmentGrid;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the a forces cease fire values change. */
+type OnForceCeaseFireChangedPayload = /** @noSelf **/
+{ 
+/** If the other force was added or removed. */
+added: boolean;
+ 
+/** The force who's cease fire changed. */
+force: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Which force was added or removed. */
+other_force: LuaForce;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a new force is created using `game.create_force()` */
+type OnForceCreatedPayload = /** @noSelf **/
+{ 
+/** The newly created force. */
+force: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the a forces friends change. */
+type OnForceFriendsChangedPayload = /** @noSelf **/
+{ 
+/** If the other force was added or removed. */
+added: boolean;
+ 
+/** The force who's friends changed. */
+force: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Which force was added or removed. */
+other_force: LuaForce;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when [LuaForce::reset](LuaForce::reset) is finished. */
+type OnForceResetPayload = /** @noSelf **/
+{ force: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after two forces have been merged using `game.merge_forces()`. */
+type OnForcesMergedPayload = /** @noSelf **/
+{ 
+/** The force entities where reassigned to. */
+destination: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The index of the destroyed force. */
+source_index: number;
+ 
+/** The force destroyed. */
+source_name: string;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when two forces are about to be merged using `game.merge_forces()`. */
+type OnForcesMergingPayload = /** @noSelf **/
+{ 
+/** The force to reassign entities to. */
+destination: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The force to be destroyed */
+source: LuaForce;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a game is created from a scenario. This is fired for every mod, even when the scenario's save data already includes it. In those cases however, [LuaBootstrap::on_init](LuaBootstrap::on_init) is not fired. */
+type OnGameCreatedFromScenarioPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when [LuaGuiElement](LuaGuiElement) checked state is changed (related to checkboxes and radio buttons). */
+type OnGuiCheckedStateChangedPayload = /** @noSelf **/
+{ 
+/** The element whose checked state changed. */
+element: LuaGuiElement;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who did the change. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when [LuaGuiElement](LuaGuiElement) is clicked. */
+type OnGuiClickPayload = /** @noSelf **/
+{ 
+/** If alt was pressed. */
+alt: boolean;
+ 
+/** The mouse button used if any. */
+button: typeof defines.mouse_button_type;
+ 
+/** If control was pressed. */
+control: boolean;
+ 
+/** The clicked element. */
+element: LuaGuiElement;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who did the clicking. */
+player_index: number;
+ 
+/** If shift was pressed. */
+shift: boolean;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the player closes the GUI they have open.
+
+This can only be raised when the GUI's player controller is still valid. If a GUI is thus closed due to the player disconnecting, dying, or becoming a spectator in other ways, it won't cause this event to be raised. */
+type OnGuiClosedPayload = /** @noSelf **/
+{ 
+/** The custom GUI element that was open */
+element: (null | LuaGuiElement);
+ 
+/** The entity that was open */
+entity: (null | LuaEntity);
+ 
+/** The equipment that was open */
+equipment: (null | LuaEquipment);
+ 
+/** The GUI type that was open. */
+gui_type: typeof defines.gui_type;
+ 
+/** The script inventory that was open */
+inventory: (null | LuaInventory);
+ 
+/** The item that was open */
+item: (null | LuaItemStack);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The other player that was open */
+other_player: (null | LuaPlayer);
+ 
+/** The player. */
+player_index: number;
+ 
+/** The technology that was automatically selected when opening the research GUI */
+technology: (null | LuaTechnology);
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The tile position that was open */
+tile_position: (null | TilePosition);
+ }
+
+/** Called when a [LuaGuiElement](LuaGuiElement) is confirmed, for example by pressing Enter in a textfield. */
+type OnGuiConfirmedPayload = /** @noSelf **/
+{ 
+/** If alt was pressed. */
+alt: boolean;
+ 
+/** If control was pressed. */
+control: boolean;
+ 
+/** The confirmed element. */
+element: LuaGuiElement;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who did the confirming. */
+player_index: number;
+ 
+/** If shift was pressed. */
+shift: boolean;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when [LuaGuiElement](LuaGuiElement) element value is changed (related to choose element buttons). */
+type OnGuiElemChangedPayload = /** @noSelf **/
+{ 
+/** The element whose element value changed. */
+element: LuaGuiElement;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who did the change. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when [LuaGuiElement](LuaGuiElement) element location is changed (related to frames in `player.gui.screen`). */
+type OnGuiLocationChangedPayload = /** @noSelf **/
+{ 
+/** The element whose location changed. */
+element: LuaGuiElement;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who did the change. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the player opens a GUI. */
+type OnGuiOpenedPayload = /** @noSelf **/
+{ 
+/** The custom GUI element that was opened */
+element: (null | LuaGuiElement);
+ 
+/** The entity that was opened */
+entity: (null | LuaEntity);
+ 
+/** The equipment that was opened */
+equipment: (null | LuaEquipment);
+ 
+/** The GUI type that was opened. */
+gui_type: typeof defines.gui_type;
+ 
+/** The script inventory that was opened */
+inventory: (null | LuaInventory);
+ 
+/** The item that was opened */
+item: (null | LuaItemStack);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The other player that was opened */
+other_player: (null | LuaPlayer);
+ 
+/** The player. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when [LuaGuiElement](LuaGuiElement) selected tab is changed (related to tabbed-panes). */
+type OnGuiSelectedTabChangedPayload = /** @noSelf **/
+{ 
+/** The tabbed pane whose selected tab changed. */
+element: LuaGuiElement;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who did the change. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when [LuaGuiElement](LuaGuiElement) selection state is changed (related to drop-downs and listboxes). */
+type OnGuiSelectionStateChangedPayload = /** @noSelf **/
+{ 
+/** The element whose selection state changed. */
+element: LuaGuiElement;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who did the change. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when [LuaGuiElement](LuaGuiElement) switch state is changed (related to switches). */
+type OnGuiSwitchStateChangedPayload = /** @noSelf **/
+{ 
+/** The switch whose switch state changed. */
+element: LuaGuiElement;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who did the change. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when [LuaGuiElement](LuaGuiElement) text is changed by the player. */
+type OnGuiTextChangedPayload = /** @noSelf **/
+{ 
+/** The edited element. */
+element: LuaGuiElement;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who did the edit. */
+player_index: number;
+ 
+/** The new text in the element. */
+text: string;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when [LuaGuiElement](LuaGuiElement) slider value is changed (related to the slider element). */
+type OnGuiValueChangedPayload = /** @noSelf **/
+{ 
+/** The element whose value changed. */
+element: LuaGuiElement;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who did the change. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a land mine is armed. */
+type OnLandMineArmedPayload = /** @noSelf **/
+{ mine: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a custom Lua shortcut is pressed. */
+type OnLuaShortcutPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Shortcut prototype name of the shortcut that was clicked. */
+prototype_name: string;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when an entity is marked for deconstruction with the Deconstruction planner or via script. Can be filtered using [LuaEntityMarkedForDeconstructionEventFilter](LuaEntityMarkedForDeconstructionEventFilter). */
+type OnMarkedForDeconstructionPayload = /** @noSelf **/
+{ entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: (null | number);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when an entity is marked for upgrade with the Upgrade planner or via script. Can be filtered using [LuaEntityMarkedForUpgradeEventFilter](LuaEntityMarkedForUpgradeEventFilter). */
+type OnMarkedForUpgradePayload = /** @noSelf **/
+{ 
+/** The new direction (if any) */
+direction: (null | typeof defines.direction);
+ entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: (null | number);
+ target: LuaEntityPrototype;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player purchases some offer from a `market` entity. */
+type OnMarketItemPurchasedPayload = /** @noSelf **/
+{ 
+/** The amount of offers purchased. */
+count: number;
+ 
+/** The market entity. */
+market: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The index of the offer purchased. */
+offer_index: number;
+ 
+/** The player who did the purchasing. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the player uses the 'Open item GUI' control on an item defined with the 'mod-openable' flag */
+type OnModItemOpenedPayload = /** @noSelf **/
+{ 
+/** The item clicked on. */
+item: LuaItemPrototype;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called directly after a permission group is added. */
+type OnPermissionGroupAddedPayload = /** @noSelf **/
+{ 
+/** The group added. */
+group: LuaPermissionGroup;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player that added the group. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called directly after a permission group is deleted. */
+type OnPermissionGroupDeletedPayload = /** @noSelf **/
+{ 
+/** The group that was deleted. */
+group_name: string;
+ 
+/** The group id that was deleted. */
+id: number;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player doing the deletion. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called directly after a permission group is edited in some way. */
+type OnPermissionGroupEditedPayload = /** @noSelf **/
+{ 
+/** The action when the `type` is "add-permission" or "remove-permission". */
+action: typeof defines.input_action;
+ 
+/** The group being edited. */
+group: LuaPermissionGroup;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The new group name when the `type` is "rename". */
+new_name: string;
+ 
+/** The old group name when the `type` is "rename". */
+old_name: string;
+ 
+/** The other player when the `type` is "add-player" or "remove-player". */
+other_player_index: number;
+ 
+/** The player that did the editing. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The edit type: "add-permission", "remove-permission", "enable-all", "disable-all", "add-player", "remove-player", "rename". */
+type: string;
+ }
+
+/** Called directly after a permission string is imported. */
+type OnPermissionStringImportedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player that imported the string. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player picks up an item. */
+type OnPickedUpItemPayload = /** @noSelf **/
+{ item_stack: SimpleItemStack;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player alt-selects an area with a selection-tool item. */
+type OnPlayerAltSelectedAreaPayload = /** @noSelf **/
+{ 
+/** The area selected. */
+area: BoundingBox;
+ 
+/** The entities selected. */
+entities: LuaEntity;
+ 
+/** The item used to select the area. */
+item: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player doing the selection. */
+player_index: number;
+ 
+/** The surface selected. */
+surface: LuaSurface;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The tiles selected. */
+tiles: LuaTile;
+ }
+
+/** Called after a players ammo inventory changed in some way. */
+type OnPlayerAmmoInventoryChangedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a players armor inventory changed in some way. */
+type OnPlayerArmorInventoryChangedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player is banned. */
+type OnPlayerBannedPayload = /** @noSelf **/
+{ 
+/** The player that did the banning if any. */
+by_player: (null | number);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player banned. */
+player_index: (null | number);
+ 
+/** The banned player name. */
+player_name: string;
+ 
+/** The reason given if any. */
+reason: (null | string);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player builds tiles. */
+type OnPlayerBuiltTilePayload = /** @noSelf **/
+{ 
+/** The item type used to build the tiles */
+item: (null | LuaItemPrototype);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** The stack used to build the tiles (may be empty if all of the items where used to build the tiles). */
+stack: (null | LuaItemStack);
+ 
+/** The surface the tile(s) were built on. */
+surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The tile prototype that was placed. */
+tile: LuaTilePrototype;
+ 
+/** The position data. */
+tiles: OldTileAndPosition;
+ }
+
+/** Called when a player cancels crafting. */
+type OnPlayerCancelledCraftingPayload = /** @noSelf **/
+{ 
+/** The number of crafts that have been cancelled. */
+cancel_count: number;
+ 
+/** The crafting items returned to the player's inventory. */
+items: LuaInventory;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player that did the crafting. */
+player_index: number;
+ 
+/** The recipe that has been cancelled. */
+recipe: LuaRecipe;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player changes forces. */
+type OnPlayerChangedForcePayload = /** @noSelf **/
+{ 
+/** The old force. */
+force: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who changed forces. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the tile position a player is located at changes. */
+type OnPlayerChangedPositionPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player changes surfaces. */
+type OnPlayerChangedSurfacePayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who changed surfaces. */
+player_index: number;
+ 
+/** The surface index the player was on. */
+surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when cheat mode is disabled on a player. */
+type OnPlayerCheatModeDisabledPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when cheat mode is enabled on a player. */
+type OnPlayerCheatModeEnabledPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player clicks a gps tag */
+type OnPlayerClickedGpsTagPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Index of the player */
+player_index: number;
+ 
+/** Map position contained in gps tag */
+position: MapPosition;
+ 
+/** Surface name contained in gps tag, even when such surface does not exists */
+surface: string;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player clicks the "confirm" button in the configure Blueprint GUI. */
+type OnPlayerConfiguredBlueprintPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player configures spidertron remote to be connected with a given spidertron */
+type OnPlayerConfiguredSpiderRemotePayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player that configured the remote. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** Spider vehicle to which remote was connected to. */
+vehicle: LuaEntity;
+ }
+
+/** Called when the player finishes crafting an item. This event fires just before the results are inserted into the player's inventory, not when the crafting is queued (see [on_pre_player_crafted_item](on_pre_player_crafted_item)). */
+type OnPlayerCraftedItemPayload = /** @noSelf **/
+{ 
+/** The item that has been crafted. */
+item_stack: LuaItemStack;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player doing the crafting. */
+player_index: number;
+ 
+/** The recipe used to craft this item. */
+recipe: LuaRecipe;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after the player was created. */
+type OnPlayerCreatedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a players cursorstack changed in some way. */
+type OnPlayerCursorStackChangedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player selects an area with a deconstruction planner. */
+type OnPlayerDeconstructedAreaPayload = /** @noSelf **/
+{ 
+/** If normal selection or alt selection was used. */
+alt: boolean;
+ 
+/** The area selected. */
+area: BoundingBox;
+ 
+/** The item used to select the area. */
+item: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player doing the selection. */
+player_index: number;
+ 
+/** The surface selected. */
+surface: LuaSurface;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player is demoted. */
+type OnPlayerDemotedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player dies. */
+type OnPlayerDiedPayload = /** @noSelf **/
+{ cause: (null | LuaEntity);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the display resolution changes for a given player. */
+type OnPlayerDisplayResolutionChangedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The old display resolution */
+old_resolution: DisplayResolution;
+ 
+/** The player */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the display scale changes for a given player. */
+type OnPlayerDisplayScaleChangedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The old display scale */
+old_scale: number;
+ 
+/** The player */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the player's driving state has changed, this means a player has either entered or left a vehicle. */
+type OnPlayerDrivingChangedStatePayload = /** @noSelf **/
+{ 
+/** The vehicle if any. */
+entity: (null | LuaEntity);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player drops an item on the ground. */
+type OnPlayerDroppedItemPayload = /** @noSelf **/
+{ 
+/** The item-on-ground entity. */
+entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player fast-transfers something to or from an entity. */
+type OnPlayerFastTransferredPayload = /** @noSelf **/
+{ 
+/** The entity transferred from or to. */
+entity: LuaEntity;
+ 
+/** Whether the transfer was from player to entity. If `false`, the transfer was from entity to player. */
+from_player: boolean;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player transferred from or to. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after player flushed fluid */
+type OnPlayerFlushedFluidPayload = /** @noSelf **/
+{ 
+/** Amount of fluid that was removed */
+amount: number;
+ 
+/** Entity from which flush was performed */
+entity: LuaEntity;
+ 
+/** Name of a fluid that was flushed */
+fluid: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** True if flush was requested only on this entity */
+only_this_entity: boolean;
+ 
+/** Index of the player */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a players gun inventory changed in some way. */
+type OnPlayerGunInventoryChangedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player joins the game. This is not called when loading a save file in singleplayer, as the player doesn't actually leave the game, and the save is just on pause until they rejoin. */
+type OnPlayerJoinedGamePayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player is kicked. */
+type OnPlayerKickedPayload = /** @noSelf **/
+{ 
+/** The player that did the kicking if any. */
+by_player: (null | number);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player kicked. */
+player_index: number;
+ 
+/** The reason given if any. */
+reason: (null | string);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player leaves the game. This is not called when closing a save file in singleplayer, as the player doesn't actually leave the game, and the save is just on pause until they rejoin. */
+type OnPlayerLeftGamePayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ reason: typeof defines.disconnect_reason;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a players main inventory changed in some way. */
+type OnPlayerMainInventoryChangedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after the results of an entity being mined are collected just before the entity is destroyed. After this event any items in the buffer will be transferred into the player as if they came from mining the entity. Can be filtered using [LuaPlayerMinedEntityEventFilter](LuaPlayerMinedEntityEventFilter). */
+type OnPlayerMinedEntityPayload = /** @noSelf **/
+{ 
+/** The temporary inventory that holds the result of mining the entity. */
+buffer: LuaInventory;
+ 
+/** The entity that has been mined. */
+entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The index of the player doing the mining. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the player mines something. */
+type OnPlayerMinedItemPayload = /** @noSelf **/
+{ 
+/** The item given to the player */
+item_stack: SimpleItemStack;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player mines tiles. */
+type OnPlayerMinedTilePayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** The surface the tile(s) were mined from. */
+surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The position data. */
+tiles: OldTileAndPosition;
+ }
+
+/** Called when a player is muted. */
+type OnPlayerMutedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player invokes the "smart pipette" over an entity. */
+type OnPlayerPipettePayload = /** @noSelf **/
+{ 
+/** The item put in the cursor */
+item: LuaItemPrototype;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** If cheat mode was used to give a free stack of the item. */
+used_cheat_mode: boolean;
+ }
+
+/** Called after the player puts equipment in an equipment grid */
+type OnPlayerPlacedEquipmentPayload = /** @noSelf **/
+{ 
+/** The equipment put in the equipment grid. */
+equipment: LuaEquipment;
+ 
+/** The equipment grid the equipment was put in. */
+grid: LuaEquipmentGrid;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player is promoted. */
+type OnPlayerPromotedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player is removed (deleted) from the game. Not to be confused with the player logging of this is different in that the player is deleted as if he never existed in the save file. */
+type OnPlayerRemovedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player index that was removed */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after the player removes equipment from an equipment grid */
+type OnPlayerRemovedEquipmentPayload = /** @noSelf **/
+{ 
+/** The count of equipment removed. */
+count: number;
+ 
+/** The equipment removed. */
+equipment: string;
+ 
+/** The equipment grid removed from. */
+grid: LuaEquipmentGrid;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player repairs an entity. Can be filtered using [LuaPlayerRepairedEntityEventFilter](LuaPlayerRepairedEntityEventFilter). */
+type OnPlayerRepairedEntityPayload = /** @noSelf **/
+{ entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player respawns. */
+type OnPlayerRespawnedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** The player port used to respawn if one was used. */
+player_port: (null | LuaEntity);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player reverse-selects an area with a selection-tool item. */
+type OnPlayerReverseSelectedAreaPayload = /** @noSelf **/
+{ 
+/** The area selected. */
+area: BoundingBox;
+ 
+/** The entities selected. */
+entities: LuaEntity;
+ 
+/** The item used to select the area. */
+item: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player doing the selection. */
+player_index: number;
+ 
+/** The surface selected. */
+surface: LuaSurface;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The tiles selected. */
+tiles: LuaTile;
+ }
+
+/** Called when the player rotates an entity. This event is only fired when the entity actually changes its orientation -- pressing the rotate key on an entity that can't be rotated won't fire this event. */
+type OnPlayerRotatedEntityPayload = /** @noSelf **/
+{ 
+/** The rotated entity. */
+entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** The previous direction */
+previous_direction: typeof defines.direction;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a player selects an area with a selection-tool item. */
+type OnPlayerSelectedAreaPayload = /** @noSelf **/
+{ 
+/** The area selected. */
+area: BoundingBox;
+ 
+/** The entities selected. */
+entities: LuaEntity;
+ 
+/** The item used to select the area. */
+item: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player doing the selection. */
+player_index: number;
+ 
+/** The surface selected. */
+surface: LuaSurface;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The tiles selected. */
+tiles: LuaTile;
+ }
+
+/** Called when a player sets a quickbar slot to anything (new value, or set to empty). */
+type OnPlayerSetQuickBarSlotPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player selects an area with a blueprint. */
+type OnPlayerSetupBlueprintPayload = /** @noSelf **/
+{ 
+/** If normal selection or alt selection was used. */
+alt: boolean;
+ 
+/** The area selected. */
+area: BoundingBox;
+ 
+/** The item used to select the area. */
+item: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player doing the selection. */
+player_index: number;
+ 
+/** The surface selected. */
+surface: LuaSurface;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player toggles alt mode, also known as "show entity info". */
+type OnPlayerToggledAltModePayload = /** @noSelf **/
+{ 
+/** The new alt mode value. This value is a shortcut for accessing [GameViewSettings::show_entity_info](GameViewSettings::show_entity_info) on the player. */
+alt_mode: boolean;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player toggles the map editor on or off. */
+type OnPlayerToggledMapEditorPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a players trash inventory changed in some way. */
+type OnPlayerTrashInventoryChangedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player is un-banned. */
+type OnPlayerUnbannedPayload = /** @noSelf **/
+{ 
+/** The player that did the un-banning if any. */
+by_player: (null | number);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player un-banned. */
+player_index: (null | number);
+ 
+/** The player name un-banned. */
+player_name: string;
+ 
+/** The reason the player was banned if any. */
+reason: (null | string);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player is unmuted. */
+type OnPlayerUnmutedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player uses a capsule that results in some game action. */
+type OnPlayerUsedCapsulePayload = /** @noSelf **/
+{ 
+/** The capsule item used. */
+item: LuaItemPrototype;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player. */
+player_index: number;
+ 
+/** The position the capsule was used. */
+position: MapPosition;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player uses spidertron remote to send a spidertron to a given position */
+type OnPlayerUsedSpiderRemotePayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player that used the remote. */
+player_index: number;
+ 
+/** Goal position to which spidertron was sent to. */
+position: MapPosition;
+ 
+/** If the use was successful. It may fail when spidertron has different driver or when player is on different surface. */
+success: boolean;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** Spider vehicle which was requested to move. */
+vehicle: LuaEntity;
+ }
+
+/** Called after an entity dies. Can be filtered using [LuaPostEntityDiedEventFilter](LuaPostEntityDiedEventFilter). */
+type OnPostEntityDiedPayload = /** @noSelf **/
+{ 
+/** The corpses created by the entity dying if any. */
+corpses: LuaEntity;
+ 
+/** The damage type if any. */
+damage_type: (null | LuaDamagePrototype);
+ 
+/** The force that did the killing if any. */
+force: (null | LuaForce);
+ 
+/** The ghost created by the entity dying if any. */
+ghost: (null | LuaEntity);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Position where the entity died. */
+position: MapPosition;
+ 
+/** The entity prototype of the entity that died. */
+prototype: LuaEntityPrototype;
+ 
+/** The surface the entity was on. */
+surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The unit number the entity had if any. */
+unit_number: (null | number);
+ }
+
+/** Called when players uses an item to build something. Called before [on_built_entity](on_built_entity). */
+type OnPreBuildPayload = /** @noSelf **/
+{ 
+/** Item was placed while moving. */
+created_by_moving: boolean;
+ 
+/** The direction the item was facing when placed. */
+direction: typeof defines.direction;
+ 
+/** If building this blueprint was flipped horizontally. */
+flip_horizontal: boolean;
+ 
+/** If building this blueprint was flipped vertically. */
+flip_vertical: boolean;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who did the placing. */
+player_index: number;
+ 
+/** Where the item was placed. */
+position: MapPosition;
+ 
+/** Item was placed using shift building. */
+shift_build: boolean;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called before one or more chunks are deleted using [LuaSurface::delete_chunk](LuaSurface::delete_chunk). */
+type OnPreChunkDeletedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The chunks to be deleted. */
+positions: ChunkPosition;
+ surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called before entity copy-paste is done. */
+type OnPreEntitySettingsPastedPayload = /** @noSelf **/
+{ 
+/** The destination entity settings will be copied to. */
+destination: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** The source entity settings will be copied from. */
+source: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called before a ghost entity is destroyed as a result of being marked for deconstruction. Can be filtered using [LuaPreGhostDeconstructedEventFilter](LuaPreGhostDeconstructedEventFilter). */
+type OnPreGhostDeconstructedPayload = /** @noSelf **/
+{ ghost: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player that did the deconstruction if any. */
+player_index: (null | number);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called before a ghost entity is upgraded. Can be filtered using [LuaPreGhostUpgradedEventFilter](LuaPreGhostUpgradedEventFilter). */
+type OnPreGhostUpgradedPayload = /** @noSelf **/
+{ ghost: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player that did the upgrade if any. */
+player_index: (null | number);
+ target: LuaEntityPrototype;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called directly before a permission group is deleted. */
+type OnPrePermissionGroupDeletedPayload = /** @noSelf **/
+{ 
+/** The group to be deleted. */
+group: LuaPermissionGroup;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player doing the deletion. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called directly before a permission string is imported. */
+type OnPrePermissionStringImportedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player importing the string. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a player queues something to be crafted. */
+type OnPrePlayerCraftedItemPayload = /** @noSelf **/
+{ 
+/** The items removed from the players inventory to do the crafting. */
+items: LuaInventory;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player doing the crafting. */
+player_index: number;
+ 
+/** The number of times the recipe is being queued. */
+queued_count: number;
+ 
+/** The recipe being queued. */
+recipe: LuaRecipe;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called before a players dies. */
+type OnPrePlayerDiedPayload = /** @noSelf **/
+{ cause: (null | LuaEntity);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called before a player leaves the game. */
+type OnPrePlayerLeftGamePayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ reason: typeof defines.disconnect_reason;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the player finishes mining an entity, before the entity is removed from map. Can be filtered using [LuaPrePlayerMinedEntityEventFilter](LuaPrePlayerMinedEntityEventFilter). */
+type OnPrePlayerMinedItemPayload = /** @noSelf **/
+{ 
+/** The entity being mined */
+entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called before a player is removed (deleted) from the game. Not to be confused with the player logging of this is different in that the player is deleted as if he never existed in the save file. */
+type OnPrePlayerRemovedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player index that will be removed */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called before a player toggles the map editor on or off. */
+type OnPrePlayerToggledMapEditorPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called directly before a robot explodes cliffs. */
+type OnPreRobotExplodedCliffPayload = /** @noSelf **/
+{ cliff: LuaEntity;
+ 
+/** The cliff explosive used. */
+item: LuaItemPrototype;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ robot: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called just before a script inventory is resized. */
+type OnPreScriptInventoryResizedPayload = /** @noSelf **/
+{ inventory: LuaInventory;
+ 
+/** The mod that did the resizing. This will be `"core"` if done by console command or scenario script. */
+mod: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The new inventory size. */
+new_size: number;
+ 
+/** The old inventory size. */
+old_size: number;
+ 
+/** If done by console command; the player who ran the command. */
+player_index: (null | number);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called just before a surface is cleared (all entities removed and all chunks deleted). */
+type OnPreSurfaceClearedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called just before a surface is deleted. */
+type OnPreSurfaceDeletedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when research is cancelled. */
+type OnResearchCancelledPayload = /** @noSelf **/
+{ 
+/** The force whose research was cancelled. */
+force: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** A mapping of technology name to how many times it was cancelled. */
+research: Record<string, number>;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a research finishes. */
+type OnResearchFinishedPayload = /** @noSelf **/
+{ 
+/** If the technology was researched by script. */
+by_script: boolean;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The researched technology */
+research: LuaTechnology;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a research is reversed (unresearched). */
+type OnResearchReversedPayload = /** @noSelf **/
+{ 
+/** If the technology was un-researched by script. */
+by_script: boolean;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The technology un-researched */
+research: LuaTechnology;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a technology research starts. */
+type OnResearchStartedPayload = /** @noSelf **/
+{ last_research: (null | LuaTechnology);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The technology being researched */
+research: LuaTechnology;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a resource entity reaches 0 or its minimum yield for infinite resources. */
+type OnResourceDepletedPayload = /** @noSelf **/
+{ entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a construction robot builds an entity. Can be filtered using [LuaRobotBuiltEntityEventFilter](LuaRobotBuiltEntityEventFilter). */
+type OnRobotBuiltEntityPayload = /** @noSelf **/
+{ 
+/** The entity built. */
+created_entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The robot that did the building. */
+robot: LuaEntity;
+ 
+/** The item used to do the building. */
+stack: LuaItemStack;
+ 
+/** The tags associated with this entity if any. */
+tags: (null | Tags);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a robot builds tiles. */
+type OnRobotBuiltTilePayload = /** @noSelf **/
+{ 
+/** The item type used to build the tiles. */
+item: LuaItemPrototype;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The robot. */
+robot: LuaEntity;
+ 
+/** The stack used to build the tiles (may be empty if all of the items where used to build the tiles). */
+stack: LuaItemStack;
+ 
+/** The surface the tile(s) are build on. */
+surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The tile prototype that was placed. */
+tile: LuaTilePrototype;
+ 
+/** The position data. */
+tiles: OldTileAndPosition;
+ }
+
+/** Called directly after a robot explodes cliffs. */
+type OnRobotExplodedCliffPayload = /** @noSelf **/
+{ 
+/** The cliff explosive used. */
+item: LuaItemPrototype;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ robot: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a robot mines an entity. */
+type OnRobotMinedPayload = /** @noSelf **/
+{ 
+/** The entity the robot just picked up. */
+item_stack: SimpleItemStack;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The robot that did the mining. */
+robot: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after the results of an entity being mined are collected just before the entity is destroyed. After this event any items in the buffer will be transferred into the robot as if they came from mining the entity. Can be filtered using [LuaRobotMinedEntityEventFilter](LuaRobotMinedEntityEventFilter). */
+type OnRobotMinedEntityPayload = /** @noSelf **/
+{ 
+/** The temporary inventory that holds the result of mining the entity. */
+buffer: LuaInventory;
+ 
+/** The entity that has been mined. */
+entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The robot doing the mining. */
+robot: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a robot mines tiles. */
+type OnRobotMinedTilePayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The robot. */
+robot: LuaEntity;
+ 
+/** The surface the tile(s) were mined on. */
+surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The position data. */
+tiles: OldTileAndPosition;
+ }
+
+/** Called before a robot mines an entity. Can be filtered using [LuaPreRobotMinedEntityEventFilter](LuaPreRobotMinedEntityEventFilter). */
+type OnRobotPreMinedPayload = /** @noSelf **/
+{ 
+/** The entity which is about to be mined. */
+entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The robot that's about to do the mining. */
+robot: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a rocket silo is ordered to be launched. */
+type OnRocketLaunchOrderedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player that is riding the rocket, if any. */
+player_index: (null | number);
+ rocket: LuaEntity;
+ rocket_silo: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when the rocket is launched. */
+type OnRocketLaunchedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player that is riding the rocket, if any. */
+player_index: (null | number);
+ rocket: LuaEntity;
+ rocket_silo: (null | LuaEntity);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a runtime mod setting is changed by a player. */
+type OnRuntimeModSettingChangedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** If the `setting_type` is `"global"` and it was changed through the mod settings GUI, this is the index of the player that changed the global setting. If the `setting_type` is `"runtime-per-user"` and it changed a current setting of the player, this is the index of the player whose setting was changed. In all other cases, this is `nil`. */
+player_index: (null | number);
+ 
+/** The prototype name of the setting that was changed. */
+setting: string;
+ 
+/** Either "runtime-per-user" or "runtime-global". */
+setting_type: string;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called just after a script inventory is resized. */
+type OnScriptInventoryResizedPayload = /** @noSelf **/
+{ inventory: LuaInventory;
+ 
+/** The mod that did the resizing. This will be `"core"` if done by console command or scenario script. */
+mod: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The new inventory size. */
+new_size: number;
+ 
+/** The old inventory size. */
+old_size: number;
+ 
+/** Any items which didn't fit into the new inventory size. */
+overflow_inventory: LuaInventory;
+ 
+/** If done by console command; the player who ran the command. */
+player_index: (null | number);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a [LuaSurface::request_path](LuaSurface::request_path) call completes. */
+type OnScriptPathRequestFinishedPayload = /** @noSelf **/
+{ 
+/** Handle to associate the callback with a particular call to [LuaSurface::request_path](LuaSurface::request_path). */
+id: number;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The actual path that the pathfinder has determined. `nil` if pathfinding failed. */
+path: (null | PathfinderWaypoint);
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** Indicates that the pathfinder failed because it is too busy, and that you can retry later. */
+try_again_later: boolean;
+ }
+
+/** Called when a script trigger effect is triggered. */
+type OnScriptTriggerEffectPayload = /** @noSelf **/
+{ 
+/** The effect_id specified in the trigger effect. */
+effect_id: string;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ source_entity: (null | LuaEntity);
+ source_position: (null | MapPosition);
+ 
+/** The surface the effect happened on. */
+surface_index: number;
+ target_entity: (null | LuaEntity);
+ target_position: (null | MapPosition);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when an entity of type `radar` finishes scanning a sector. Can be filtered for the radar using [LuaSectorScannedEventFilter](LuaSectorScannedEventFilter). */
+type OnSectorScannedPayload = /** @noSelf **/
+{ 
+/** Area of the scanned chunk. */
+area: BoundingBox;
+ 
+/** The chunk scanned. */
+chunk_position: ChunkPosition;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The radar that did the scanning. */
+radar: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after the selected entity changes for a given player. */
+type OnSelectedEntityChangedPayload = /** @noSelf **/
+{ 
+/** The last selected entity if it still exists and there was one. */
+last_entity: (null | LuaEntity);
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player whose selected entity changed. */
+player_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a spider finishes moving to its autopilot position. */
+type OnSpiderCommandCompletedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** Spider vehicle which was requested to move. */
+vehicle: LuaEntity;
+ }
+
+/** Called when a translation request generated through [LuaPlayer::request_translation](LuaPlayer::request_translation) is translated. */
+type OnStringTranslatedPayload = /** @noSelf **/
+{ 
+/** The localised string being translated. */
+localised_string: LocalisedString;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player whose locale was used for the translation. */
+player_index: number;
+ 
+/** The translated `localised_string`. */
+result: string;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** Whether the requested localised string was valid and could be translated. */
+translated: boolean;
+ }
+
+/** Called just after a surface is cleared (all entities removed and all chunks deleted). */
+type OnSurfaceClearedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a surface is created. */
+type OnSurfaceCreatedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a surface is deleted. */
+type OnSurfaceDeletedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called after a surface is imported. */
+type OnSurfaceImportedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The original surface name. */
+original_name: string;
+ surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a surface is renamed. */
+type OnSurfaceRenamedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ new_name: string;
+ old_name: string;
+ surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when [LuaForce::reset_technology_effects](LuaForce::reset_technology_effects) is finished. */
+type OnTechnologyEffectsResetPayload = /** @noSelf **/
+{ force: LuaForce;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** It is fired once every tick. Since this event is fired every tick, its handler shouldn't include performance heavy code. */
+type OnTickPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a train changes state (started to stopped and vice versa) */
+type OnTrainChangedStatePayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ old_state: typeof defines.train_state;
+ 
+/** Tick the event was generated. */
+tick: number;
+ train: LuaTrain;
+ }
+
+/** Called when a new train is created either through disconnecting/connecting an existing one or building a new one. */
+type OnTrainCreatedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The first old train id when splitting/merging trains. */
+old_train_id_1: (null | number);
+ 
+/** The second old train id when splitting/merging trains. */
+old_train_id_2: (null | number);
+ 
+/** Tick the event was generated. */
+tick: number;
+ train: LuaTrain;
+ }
+
+/** Called when a trains schedule is changed either by the player or through script. */
+type OnTrainScheduleChangedPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The player who made the change if any. */
+player_index: (null | number);
+ 
+/** Tick the event was generated. */
+tick: number;
+ train: LuaTrain;
+ }
+
+/** Called when an entity with a trigger prototype (such as capsules) create an entity AND that trigger prototype defined `trigger_created_entity="true"`. */
+type OnTriggerCreatedEntityPayload = /** @noSelf **/
+{ entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ source: (null | LuaEntity);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when an entity with a trigger prototype (such as capsules) fire an artillery projectile AND that trigger prototype defined `trigger_fired_artillery="true"`. */
+type OnTriggerFiredArtilleryPayload = /** @noSelf **/
+{ entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ source: (null | LuaEntity);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a unit is added to a unit group. */
+type OnUnitAddedToGroupPayload = /** @noSelf **/
+{ group: LuaUnitGroup;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ unit: LuaEntity;
+ }
+
+/** Called when a new unit group is created, before any members are added to it. */
+type OnUnitGroupCreatedPayload = /** @noSelf **/
+{ group: LuaUnitGroup;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a unit group finishes gathering and starts executing its command. */
+type OnUnitGroupFinishedGatheringPayload = /** @noSelf **/
+{ group: LuaUnitGroup;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** Called when a unit is removed from a unit group. */
+type OnUnitRemovedFromGroupPayload = /** @noSelf **/
+{ group: LuaUnitGroup;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ unit: LuaEntity;
+ }
+
+/** Called when a worker (construction or logistic) robot expires through a lack of energy. */
+type OnWorkerRobotExpiredPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ robot: LuaEntity;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** A static event mods can use to tell other mods they built something by script. This event is only raised if a mod does so with [LuaBootstrap::raise_event](LuaBootstrap::raise_event) or [LuaBootstrap::raise_script_built](LuaBootstrap::raise_script_built), or when `raise_built` is passed to [LuaSurface::create_entity](LuaSurface::create_entity). Can be filtered using [LuaScriptRaisedBuiltEventFilter](LuaScriptRaisedBuiltEventFilter). */
+type ScriptRaisedBuiltPayload = /** @noSelf **/
+{ 
+/** The entity that has been built. */
+entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** A static event mods can use to tell other mods they destroyed something by script. This event is only raised if a mod does so with [LuaBootstrap::raise_event](LuaBootstrap::raise_event) or [LuaBootstrap::raise_script_destroy](LuaBootstrap::raise_script_destroy), or when `raise_destroy` is passed to [LuaEntity::destroy](LuaEntity::destroy). Can be filtered using [LuaScriptRaisedDestroyEventFilter](LuaScriptRaisedDestroyEventFilter). */
+type ScriptRaisedDestroyPayload = /** @noSelf **/
+{ 
+/** The entity that was destroyed. */
+entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** A static event mods can use to tell other mods they revived something by script. This event is only raised if a mod does so with [LuaBootstrap::raise_event](LuaBootstrap::raise_event) or [LuaBootstrap::raise_script_revive](LuaBootstrap::raise_script_revive), or when `raise_revive` is passed to [LuaEntity::revive](LuaEntity::revive). Can be filtered using [LuaScriptRaisedReviveEventFilter](LuaScriptRaisedReviveEventFilter). */
+type ScriptRaisedRevivePayload = /** @noSelf **/
+{ 
+/** The entity that was revived. */
+entity: LuaEntity;
+ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The tags associated with this entity, if any. */
+tags: (null | Tags);
+ 
+/** Tick the event was generated. */
+tick: number;
+ }
+
+/** A static event mods can use to tell other mods they changed tiles on a surface by script. This event is only raised if a mod does so with [LuaBootstrap::raise_event](LuaBootstrap::raise_event) or [LuaBootstrap::raise_script_set_tiles](LuaBootstrap::raise_script_set_tiles), or when `raise_event` is passed to [LuaSurface::set_tiles](LuaSurface::set_tiles). */
+type ScriptRaisedSetTilesPayload = /** @noSelf **/
+{ 
+/** Identifier of the event */
+name: typeof defines.events;
+ 
+/** The surface whose tiles were changed. */
+surface_index: number;
+ 
+/** Tick the event was generated. */
+tick: number;
+ 
+/** The tiles that were changed. */
+tiles: Tile;
+ }
 /** globals */
 /** This is the main object, through which most of the API is accessed. It is, however, not available inside handlers registered with LuaBootstrap::on_load. */
 declare const game: LuaGameScript;
